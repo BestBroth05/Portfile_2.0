@@ -35,7 +35,7 @@ export function Main() {
 
               <p className="home__description">Full Stack developer, passionate about frontend development.</p>
 
-              <a href="/src/assets/docs/Brayan_Olivares_CV.pdf" download='Brayan_Olivares_CV.pdf' className='button'>Download CV <FontAwesomeIcon icon={faDownload} /></a>
+              <a href="https://drive.usercontent.google.com/u/0/uc?id=1kZcvUo0XmGDqrQ3PDObUkt3MfRD1dlBs&export=download" download='Brayan_Olivares_CV.pdf' className='button'>Download CV <FontAwesomeIcon icon={faDownload} /></a>
               <a href="mailto:olivaresbrayan0510@gmail.com?" className='button'>Contact me <FontAwesomeIcon icon={faPaperPlane} /></a>
               <br />
               <div className='headerMedia'>
