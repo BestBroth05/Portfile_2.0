@@ -6,6 +6,7 @@ import img5 from "../assets/img/dove.png";
 import img6 from "../assets/img/biosense.png";
 import img7 from "../assets/img/calculator.png";
 import img8 from "../assets/img/opencv.png";
+import img9 from "../assets/img/think.png";
 import {faCode, faServer, faVials, faGear, faBrain} from '@fortawesome/free-solid-svg-icons';
 export const datacategorias = [
   {
@@ -110,6 +111,15 @@ export const dataProductos = [
     technologies: "Python",
     website: "",
     repo: "https://github.com/BestBroth05/Matching_OpenCV",
+    bgcolor: "rgba(152, 23, 238,0.5)",
+  },
+  {
+    img: img9,
+    title: "Think out the box",
+    precio: "Proyect of the AppBrewery Bootcamp FullStack",
+    technologies: "React",
+    website: "https://bestbroth05.github.io/Think_out_the_box/",
+    repo: "https://github.com/BestBroth05/Think_out_the_box",
     bgcolor: "rgba(152, 23, 238,0.5)",
   },
 ];
