@@ -4,7 +4,7 @@ export function MyRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/Portfile_2.0/" element={<Home />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
