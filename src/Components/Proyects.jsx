@@ -26,7 +26,7 @@ const Container = styled.div`
 
     &__container {
       padding-top: 2rem;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       justify-content: center;
       gap: 4rem 1.5rem;
     }
@@ -34,7 +34,7 @@ const Container = styled.div`
       position: relative;
       background-color: var(--container-color);
       border-radius: 1.5rem;
-      margin-top: 30px;
+      margin-top: 70px;
       padding: 4rem 1.25rem 1.25rem;
       box-shadow: 0 4px 16px hsla(22, 10%, 2%, 0.3);
       text-align: center;
@@ -44,12 +44,11 @@ const Container = styled.div`
       }
     }
     &__img {
-      width: 200px;
-      height: 93px;
-      border-radius: 50%;
+      width: 350px;
+      height: 140px;
       position: absolute;
       inset: 0;
-      top: -2rem;
+      top: -5rem;
       margin: 0 auto;
       transition: transform 0.3s;
     }

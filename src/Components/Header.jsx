@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bestbroth from "../assets/img/bestbroth.png";
+import bestbroth from "../assets/img/bestbroth_1.png";
 import sable from "../assets/img/sable.png";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
@@ -7,10 +7,11 @@ import { useState, useLayoutEffect } from "react";
 import { useWindowScroll } from "react-use";
 export function Header() {
   const [state, setState] = useState(false);
+  const [stateActive, setStateActive] = useState(0);
   const [stateHeader, setStateHeader] = useState(false);
 
   const { y } = useWindowScroll();
-
+  var apuntador;
   useLayoutEffect(() => {
     if (y >= 50) {
       setStateHeader(true);
@@ -18,6 +19,12 @@ export function Header() {
       setStateHeader(false);
     }
   }, [y]);
+
+  // focusToolbar (() => {
+  //   if (apuntador) {
+      
+  //   }
+  // }, []);
 
   return (
     <Container>
@@ -37,27 +44,27 @@ export function Header() {
           >
             <ul className="nav__list" onClick={() => setState(!state)}>
               <li className="nav__item">
-                <a href="#home" className="nav__link active-link">
+                <a href="#home" onClick={() => setStateActive(0)} className= {stateActive == 0 ? "nav__link active-link" : "nav__link"}>
                   Home
                 </a>
               </li>
               <li className="nav__item">
-                <a href="#about" className="nav__link">
+                <a href="#about" onClick={() => setStateActive(1)} className= {stateActive == 1 ? "nav__link active-link" : "nav__link"}>
                   About
                 </a>
               </li>
               <li className="nav__item">
-                <a href="#knowledge" className="nav__link">
+                <a href="#knowledge" onClick={() => setStateActive(2)} className= {stateActive == 2 ? "nav__link active-link" : "nav__link"}>
                   Knowledge
                 </a>
               </li>
               <li className="nav__item">
-                <a href="#proyects" className="nav__link">
+                <a href="#proyects" onClick={() => setStateActive(3)} className= {stateActive == 3 ? "nav__link active-link" : "nav__link"}>
                   Projects
                 </a>
               </li>
               <li className="nav__item">
-                <a href="#contact" className="nav__link">
+                <a href="#contact" onClick={() => setStateActive(4)} className= {stateActive == 4 ? "nav__link active-link" : "nav__link"}>
                   Get in Touch
                 </a>
               </li>
@@ -151,10 +158,13 @@ const Container = styled.div`
       color: var(--white-color);
       font-family: var(--second-font);
       transition: color 0.4s;
-
+      &li.active {
+        color: var(--first-color);
+      }
       &:hover {
         color: var(--first-color);
       }
+      
     }
     &__close {
       position: absolute;

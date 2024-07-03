@@ -6,7 +6,7 @@ import img1 from "../assets/img/shape-bg.png";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import { ScrollToTop } from "../Components/ScrollToTop";
-import ParticleBackground from '../Components/Background'
+import ParticleBackground from '../Components/Background';
 export function Home() {
   const sr = ScrollReveal({
     origin: "top",
@@ -141,7 +141,7 @@ const Container = styled.div`
     }
 
     .items__container {
-      grid-template-columns: repeat(2, 200px);
+      grid-template-columns: repeat(1, 400px);
     }
 
     .footer__content {
@@ -271,14 +271,15 @@ const Container = styled.div`
 
     .items {
       &__container {
-        grid-template-columns: repeat(3, 200px);
+        grid-template-columns: repeat(1, 800px);
         gap: 6rem 3.5rem;
       }
       &__card {
         padding: 6rem 1rem 1.5rem;
       }
       &__img {
-        width: 250px;
+        width: 450px;
+        height: 170px;
       }
       &__name {
         font-size: var(--h3-font-size);

@@ -33,7 +33,7 @@ export function Main() {
                 <img src={node} alt="home image" className="home__title-img-2" />
               </h1>
 
-              <p className="home__description">Full Stack developer, passionate about frontend development.</p>
+              <p className="home__description">Full Stack developer, passionate about frontend and backend development.</p>
 
               <a href="https://drive.usercontent.google.com/u/0/uc?id=1kZcvUo0XmGDqrQ3PDObUkt3MfRD1dlBs&export=download" download='Brayan_Olivares_CV.pdf' className='button'>Download CV <FontAwesomeIcon icon={faDownload} /></a>
               <a href="mailto:olivaresbrayan0510@gmail.com?" className='button'>Contact me <FontAwesomeIcon icon={faPaperPlane} /></a>
@@ -41,7 +41,7 @@ export function Main() {
               <div className='headerMedia'>
               <ul className="footer__social">
                 <a
-                  href="https://linkedin.com/in/brayan-guillermo-olivares-peña-865a74277"
+                  href="https://www.linkedin.com/in/brayan-olivares-peña-865a74277"
                   target="blank"
                   className="footer__social-link"
                 >

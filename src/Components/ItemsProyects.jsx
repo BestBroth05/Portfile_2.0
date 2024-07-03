@@ -2,14 +2,12 @@
 import {faGithubAlt} from '@fortawesome/free-brands-svg-icons';
 import {faArrowUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Carousel } from './Carousel';
 export function ItemsProductos({item}) {
+
   return (
-    <article className="items__card">
-      <img
-        src={item.img}
-        alt="items image"
-        className="items__img"
-      />
+    <article className="items__card" id='carousel'>
+    <Carousel data={item.img}></Carousel>
 
       <h3 className="items__price">{item.title}</h3>
       <span className="items__name">{item.precio}</span>

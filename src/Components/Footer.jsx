@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bestbroth from "../assets/img/bestbroth.png";
+import bestbroth from "../assets/img/bestbroth_1.png";
 import img2 from "../assets/img/C3PO.png";
 import img3 from "../assets/img/R2D2.png";
 import {faFacebook, faXTwitter, faInstagram} from '@fortawesome/free-brands-svg-icons';
@@ -52,7 +52,7 @@ export function Footer() {
 
               <ul className="footer__social">
                 <a
-                  href="https://linkedin.com/in/brayan-guillermo-olivares-peña-865a74277"
+                  href="https://www.linkedin.com/in/brayan-olivares-peña-865a74277"
                   target="blank"
                   className="footer__social-link"
                 >
