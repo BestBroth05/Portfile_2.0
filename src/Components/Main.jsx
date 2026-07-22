@@ -1,9 +1,10 @@
 import { Hero } from "./Hero";
 import { About } from "./About";
 import { Experience } from "./Experience";
-import { Productos } from "./Proyects";
-import { Categorias } from "./Knowledge";
-import { Party } from "./Contact";
+import { FeaturedProjects } from "./FeaturedProjects";
+import { ProfessionalWork } from "./ProfessionalWork";
+import { Skills } from "./Skills";
+import { Contact } from "./Contact";
 
 export function Main() {
   return (
@@ -11,9 +12,10 @@ export function Main() {
       <Hero />
       <About />
       <Experience />
-      <Productos />
-      <Categorias />
-      <Party />
+      <FeaturedProjects />
+      <ProfessionalWork />
+      <Skills />
+      <Contact />
     </main>
   );
 }
