@@ -1,107 +1,167 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
-import {faPaperPlane} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import img1 from "../assets/img/me_mamado.png"
-import img2 from "../assets/img/pesa.png"
-export function Party() {
-  return (<Container>
-  <section className="party section" id="contact">
-          <div className="party__container container grid">
-            <div className="party__data">
-              <h2 className="section__title">
-                It is now or never!<br />
-                Get in touch with me
-              </h2>
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { site } from "../data/site";
 
-              <p className="party__description">
-              If you want to contact me, you can do so through my social networks or by filling out the contact form. I will answer you as soon as possible. Thank you!
-              </p>
-              <p className="party__email">
-              <FontAwesomeIcon icon={faEnvelope} /> olivaresbrayan0510@gmail.com
-              </p>
-              <div className="form">
-                <form action="https://formsubmit.co/a9a96aa1fd37ed87d57009fa12df63a0" method="post">
-                  <input type="text" id="name" name="name" placeholder="Name"/>
+export function Contact() {
+  const [status, setStatus] = useState("idle");
 
-                  <input type="email" id="email" name="email" placeholder="Email"/>
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("contact") === "sent") {
+      setStatus("success");
+    }
+  }, []);
 
-                  <input type="text" id="subject" name="subject" placeholder="Subject"/>
+  return (
+    <Container>
+      <section
+        className="contact section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div className="contact__container container grid">
+          <div className="contact__data">
+            <h2 className="section__title" id="contact-title">
+              Let&apos;s build reliable software together.
+            </h2>
+            <p className="contact__description">
+              I&apos;m open to opportunities involving Flutter, Bluetooth Low
+              Energy, IoT, backend development, and AWS cloud engineering.
+            </p>
+            <p className="contact__email">
+              <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />{" "}
+              <a href={site.links.email}>{site.email}</a>
+            </p>
 
-                  <textarea id="msg" name="comments" placeholder="Message"></textarea>
-                  <a href=""></a>
-                  <button type="submit" className="button">Send <FontAwesomeIcon icon={faPaperPlane} /></button>
-                  <input type="hidden" name="_next" value="https://brayanolivares.com"/>
-                  <input type="hidden" name="_captcha" value="false"/>
-              </form>
+            <form
+              className="form"
+              action="https://formsubmit.co/olivaresbrayan0510@gmail.com"
+              method="POST"
+            >
+              <input type="hidden" name="_subject" value="Portfolio contact" />
+              <input
+                type="hidden"
+                name="_next"
+                value={`${site.canonicalUrl}/?contact=sent#contact`}
+              />
+              <input type="hidden" name="_captcha" value="true" />
+              <input
+                type="text"
+                name="_honey"
+                className="visually-hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+
+              <div className="form__field">
+                <label className="form__label" htmlFor="contact-name">
+                  Name
+                </label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  minLength={2}
+                />
               </div>
-            </div>
 
-            <div className="party__images">
-              <img
-                src={img1}
-                alt="party image"
-                className="party__img"
-              />
+              <div className="form__field">
+                <label className="form__label" htmlFor="contact-email">
+                  Email
+                </label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                />
+              </div>
 
-              <img
-                src={img2}
-                alt="party image"
-                className="party__star-1"
-              />
-              <img
-                src={img2}
-                alt="party image"
-                className="party__star-2"
-              />
-            </div>
+              <div className="form__field">
+                <label className="form__label" htmlFor="contact-subject">
+                  Subject
+                </label>
+                <input
+                  id="contact-subject"
+                  name="subject"
+                  type="text"
+                  required
+                />
+              </div>
+
+              <div className="form__field">
+                <label className="form__label" htmlFor="contact-message">
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  minLength={10}
+                />
+              </div>
+
+              {status === "success" ? (
+                <p className="form__status form__status--success" role="status">
+                  Thanks for reaching out. Your message was sent successfully.
+                </p>
+              ) : null}
+
+              <button type="submit" className="button">
+                Send <FontAwesomeIcon icon={faPaperPlane} aria-hidden="true" />
+              </button>
+            </form>
           </div>
-        </section>
-  </Container>);
+        </div>
+      </section>
+    </Container>
+  );
 }
-const Container =styled.div`
-  .party{
-    position: relative;
-    
-    &__container{
-        row-gap: 5rem;
 
-        & .section__title{
-            margin-bottom: 1rem;
+export { Contact as Party };
+
+const Container = styled.div`
+  .contact {
+    &__container {
+      max-width: 40rem;
+      margin-inline: auto;
+    }
+
+    &__data {
+      text-align: center;
+    }
+
+    &__description {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+
+    &__email {
+      margin-bottom: 1.5rem;
+      font-weight: var(--font-semi-bold);
+
+      a {
+        color: var(--white-color);
+
+        &:hover {
+          color: var(--first-color);
         }
+      }
     }
-    &__data{
-        text-align: center;
+
+    .section__title {
+      margin-bottom: 1rem;
     }
-    &__description{
-        margin-bottom: 2rem;
+
+    .form {
+      text-align: left;
     }
-    &__email{
-      margin-bottom: 2rem;
-      font-weight: bold;
-    }
-    &__images{
-        position: relative;
-        justify-self: center;
-    }
-    &__img{
-        width: 250px;
-    }
-    &__star-1,
-    &__star-2{
-        width: 50px;
-        position: absolute;
-        transform: rotate(15deg);
-    }
-    &__star-1{
-        top: 5rem;
-        left: -.5rem;
-        animation: animate-star-1 5s infinite ease-in-out
-    }
-    &__star-2{
-        right: -1.5rem;
-        bottom: 2rem;
-        animation: animate-star-2 5s infinite ease-in-out
-    }
-}
-`
+  }
+`;

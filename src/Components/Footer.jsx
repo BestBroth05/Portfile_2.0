@@ -1,190 +1,148 @@
 import styled from "styled-components";
 import bestbroth from "../assets/img/bestbroth_1.png";
-import img2 from "../assets/img/C3PO.png";
-import img3 from "../assets/img/R2D2.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faGlobe, faEnvelope} from '@fortawesome/free-solid-svg-icons';
-import {BiLogoLinkedin, BiLogoGithub, BiLogoGmail} from "react-icons/bi"
+import { BiLogoLinkedin, BiLogoGithub, BiLogoGmail, BiGlobe } from "react-icons/bi";
+import { site } from "../data/site";
+
 export function Footer() {
   return (
     <Container>
       <footer className="footer section">
-        <div className="shape__small"></div>
-        <div className="shape__big"></div>
-
         <div className="footer__container container grid">
           <div>
-            <a href="https://brayanolivares.com" className="footer__logo">
-              <img src={bestbroth} alt="logo image" />
-              Brayan Olivares
+            <a href={site.links.website} className="footer__logo">
+              <img src={bestbroth} alt="" width={20} height={20} />
+              {site.name}
             </a>
-
             <p className="footer__description">
-              Flutter &amp; IoT Engineer — hardware to user interface, available for remote roles globally.
+              Software engineer focused on Flutter, Bluetooth Low Energy, IoT,
+              backend services, and AWS cloud systems.
             </p>
           </div>
 
           <div className="footer__content">
-            <div>
-              <h3 className="footer__title">Contact</h3>
-
-              <ul className="footer__links">
-                <li>
-                  <a href="https://brayanolivares.com" target="_blank" rel="noreferrer" className="footer__link">
-                  <FontAwesomeIcon icon={faGlobe} /> Website
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:olivaresbrayan0510@gmail.com" className="footer__link">
-                  <FontAwesomeIcon icon={faEnvelope} /> Email
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/in/brayan-olivares-peña-865a74277" target="_blank" rel="noreferrer" className="footer__link">
-                  <BiLogoLinkedin /> LinkedIn
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="footer__title">Social Media</h3>
-
-              <ul className="footer__social">
+            <h3 className="footer__title">Links</h3>
+            <ul className="footer__social" aria-label="Footer social links">
+              <li>
                 <a
-                  href="https://www.linkedin.com/in/brayan-olivares-peña-865a74277"
-                  target="blank"
-                  rel="noreferrer"
+                  href={site.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="footer__social-link"
+                  aria-label="GitHub"
                 >
-                <BiLogoLinkedin/>
+                  <BiLogoGithub aria-hidden="true" />
                 </a>
-
+              </li>
+              <li>
                 <a
-                  href="https://github.com/BestBroth05"
-                  target="blank"
-                  rel="noreferrer"
+                  href={site.links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="footer__social-link"
+                  aria-label="LinkedIn"
                 >
-                <BiLogoGithub/>
+                  <BiLogoLinkedin aria-hidden="true" />
                 </a>
-
+              </li>
+              <li>
                 <a
-                  href="mailto:olivaresbrayan0510@gmail.com"
-                  target="blank"
+                  href={site.links.email}
                   className="footer__social-link"
+                  aria-label="Email"
                 >
-                  <BiLogoGmail/>
+                  <BiLogoGmail aria-hidden="true" />
                 </a>
-              </ul>
-            </div>
+              </li>
+              <li>
+                <a
+                  href={site.links.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer__social-link"
+                  aria-label="Portfolio website"
+                >
+                  <BiGlobe aria-hidden="true" />
+                </a>
+              </li>
+            </ul>
           </div>
-
-          <img src={img2} alt="footer image" className="footer__tree-1" />
-          <img src={img3} alt="footer image" className="footer__tree-2" />
         </div>
-
-        <span className="footer__copy">&#169; Brayan Olivares 2026</span>
+        <p className="footer__copy">© {site.name} 2026</p>
       </footer>
     </Container>
   );
 }
+
 const Container = styled.div`
   .footer {
     position: relative;
     overflow: hidden;
+    padding-bottom: 2rem;
 
     &__container {
-      row-gap: 4rem;
+      row-gap: 2rem;
     }
+
     &__logo {
       display: inline-flex;
       align-items: center;
       column-gap: 0.5rem;
       color: var(--first-color);
       font-weight: var(--font-medium);
-      margin-bottom: 1.25rem;
-      transition: color 0.3s;
+      margin-bottom: 1rem;
 
       & img {
         width: 20px;
-      }
-      &:hover {
-        color: var(--first-color-alt);
+        height: 20px;
       }
     }
+
     &__description {
       font-size: var(--small-font-size);
+      color: var(--text-color);
+      max-width: 28rem;
     }
-    &__content,
-    &__links {
-      display: grid;
-    }
-    &__content {
-      grid-template-columns: repeat(2, max-content);
-      gap: 2.5rem 4.5rem;
-    }
+
     &__title {
       font-size: var(--h3-font-size);
-      font-weight: var(--font-semi-bold);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
-    &__links {
-      row-gap: 0.75rem;
-    }
-    &__link {
-      color: var(--text-color);
-      font-size: var(--small-font-size);
-      transition: color 0.3s;
 
-      &:hover {
-        color: var(--first-color);
-      }
-    }
     &__social {
       display: flex;
-      column-gap: 1.25rem;
-      margin-bottom: 80px;
+      gap: 0.75rem;
+
       &-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
         color: var(--first-color);
-        font-size: 1.25rem;
+        font-size: 1.35rem;
         transition: color 0.3s, transform 0.3s;
 
         &:hover {
           color: var(--first-color-alt);
-          transform: translateY(-0.25rem);
+          transform: translateY(-0.2rem);
         }
       }
     }
-    &__tree-1,
-    &__tree-2 {
-      width: 150px;
-      position: absolute;
-    }
-    &__tree-1 {
-      height: 450px;
-      top: 4rem;
-      right: -1.5rem;
-    }
-    &__tree-2 {
-      left: -1.5rem;
-      bottom: -0.5rem;
-    }
+
     &__copy {
-      position: relative;
       display: block;
-      margin-top: 8rem;
+      margin-top: 3rem;
       font-size: var(--smaller-font-size);
       text-align: center;
       color: var(--text-color-light);
     }
-    & .shape__small {
-      right: -7rem;
-      top: 15rem;
-    }
-    & .shape__big {
-      left: -8rem;
-      bottom: -5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .footer__container {
+      grid-template-columns: 1.4fr 0.6fr;
+      align-items: start;
+      justify-content: space-between;
     }
   }
 `;
