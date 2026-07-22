@@ -31,7 +31,7 @@ export function Party() {
                   <textarea id="msg" name="comments" placeholder="Message"></textarea>
                   <a href=""></a>
                   <button type="submit" className="button">Send <FontAwesomeIcon icon={faPaperPlane} /></button>
-                  <input type="hidden" name="_next" value="http://localhost:5173"/>
+                  <input type="hidden" name="_next" value="https://brayanolivares.com"/>
                   <input type="hidden" name="_captcha" value="false"/>
               </form>
               </div>

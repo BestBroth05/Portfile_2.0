@@ -6,7 +6,7 @@ import { Productos } from "./Proyects";
 import { Party } from "./Contact";
 import img1 from "../assets/img/star.png";
 import luke from "../assets/img/luke.png";
-import reactImg from "../assets/img/react.svg";
+import flutterImg from "../assets/img/logo_flutter.png";
 import node from "../assets/img/node.png";
 import anakin from "../assets/img/anakin.png";
 import img3 from "../assets/img/falcon.png";
@@ -15,7 +15,7 @@ import {faDownload, faPaperPlane, faCode, faServer, faVials, faGear, faBrain, fa
 import {faLinkedinIn, faGithubAlt} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
 
-import {BiLogoLinkedin, BiLogoGithub, BiLogoGmail} from "react-icons/bi"
+import {BiLogoLinkedin, BiLogoGithub, BiLogoGmail, BiGlobe} from "react-icons/bi"
 import ScrollReveal from "scrollreveal";
 export function Main() {
   return (
@@ -29,14 +29,14 @@ export function Main() {
             <div className="home__data">
               <h1 className="home__title">
                 <span>Brayan <br />Olivares</span>
-                <img src={reactImg} alt="home image" className="home__title-img-1" />
+                <img src={flutterImg} alt="Flutter logo" className="home__title-img-1" />
                 <img src={node} alt="home image" className="home__title-img-2" />
               </h1>
 
-              <p className="home__description">Full Stack developer, passionate about frontend and backend development.</p>
+              <p className="home__description">Flutter &amp; IoT Engineer — from BLE protocols and Raspberry Pi to Flutter frontends and AWS-backed cloud infrastructure.</p>
 
-              <a href="https://drive.usercontent.google.com/download?id=18_-965pLRDXiJhcd-thNzYm2hB905G9T&export=download&authuser=0&confirm=t&uuid=1b2b76d1-d59b-472f-8990-a64c49b617f5&at=AEz70l5pnMEIvnmsjuxE4EuLo9YV:1741719417484" download='Brayan_Olivares_CV.pdf' className='button'>Download CV <FontAwesomeIcon icon={faDownload} /></a>
-              <a href="mailto:olivaresbrayan0510@gmail.com?" className='button'>Contact me <FontAwesomeIcon icon={faPaperPlane} /></a>
+              <a href="https://drive.usercontent.google.com/u/0/uc?id=1kZcvUo0XmGDqrQ3PDObUkt3MfRD1dlBs&export=download" download='Brayan_Olivares_CV.pdf' className='button'>Download CV <FontAwesomeIcon icon={faDownload} /></a>
+              <a href="mailto:olivaresbrayan0510@gmail.com" className='button'>Contact me <FontAwesomeIcon icon={faPaperPlane} /></a>
               <br />
               <div className='headerMedia'>
               <ul className="footer__social">
@@ -57,11 +57,20 @@ export function Main() {
                 </a>
 
                 <a
-                  href="mailto:olivaresbrayan0510@gmail.com?"
+                  href="mailto:olivaresbrayan0510@gmail.com"
                   target="blank"
                   className="footer__social-link"
                 >
                   <BiLogoGmail/>
+                </a>
+
+                <a
+                  href="https://brayanolivares.com"
+                  target="blank"
+                  rel="noreferrer"
+                  className="footer__social-link"
+                >
+                  <BiGlobe/>
                 </a>
               </ul>
               </div>

@@ -8,7 +8,7 @@ export function Productos() {
         <div className="shape__big"></div>
 
         <h2 className="section__title">
-        My Proyects
+        Experience
         </h2>
 
         <div className="items__container container grid">

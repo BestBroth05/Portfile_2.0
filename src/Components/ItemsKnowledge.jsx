@@ -13,7 +13,6 @@ export function ItemsCategorias({item}) {
     var element = objTech[i];
     arrayTech.push({id: i, tech:element});
   }
-  console.log(arrayTech);
   return (
       
       <div className="category__card">

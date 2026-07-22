@@ -13,18 +13,36 @@ export function About() {
               </h2>
 
               <p className="about__description">
-              I love creating websites that provide a unique and satisfying user experience. You can see some of my projects in the projects section.
+              Most mobile developers hand off at the API. I go further — from BLE protocol optimization and Raspberry Pi integrations to Flutter frontends and AWS-backed cloud infrastructure.
               </p>
               <p className="about__description">
-              I am a self-taught person, responsible and committed to my work. I am constantly learning new technologies and tools to improve my skills. Below, you can see my skills and technologies I use.
-              </p>
-              <p className="about__description">
-              Feel free to contact me if you have any questions.
+              4+ years building IoT and cross-platform systems that run in hospitals, buses, and refrigerators across 10+ cities and 200+ connected devices. I don&apos;t just build features; I own the full picture from hardware to user interface. Available for remote roles globally.
               </p>
 
-              <a href="https://www.instagram.com/bray_olivares" className="button">
-                More about me!!!
-              </a>
+              <h3 className="section__title">
+              Experience
+              </h3>
+              <p className="about__description">
+              <strong>AJ Electronic Design — Flutter &amp; IoT Engineer</strong> | Remote | Oct 2022 – Present
+              </p>
+              <p className="about__description">
+              <strong>Government Agency, Hidalgo — Software Engineer Intern</strong> | Jan 2022 – June 2022
+              </p>
+
+              <h3 className="section__title">
+              Education
+              </h3>
+              <p className="about__description">
+              Bachelor&apos;s Degree in Software Engineering — Universidad Tecnológica de la Sierra Hidalguense | 2019 – 2023
+              </p>
+
+              <h3 className="section__title">
+              Languages
+              </h3>
+              <p className="about__description">
+              English: Professional Working Proficiency · Spanish: Native
+              </p>
+              
             </div>
 
             <img

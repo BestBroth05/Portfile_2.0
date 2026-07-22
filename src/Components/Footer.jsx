@@ -2,8 +2,8 @@ import styled from "styled-components";
 import bestbroth from "../assets/img/bestbroth_1.png";
 import img2 from "../assets/img/C3PO.png";
 import img3 from "../assets/img/R2D2.png";
-import {faFacebook, faXTwitter, faInstagram} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faGlobe, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import {BiLogoLinkedin, BiLogoGithub, BiLogoGmail} from "react-icons/bi"
 export function Footer() {
   return (
@@ -14,34 +14,34 @@ export function Footer() {
 
         <div className="footer__container container grid">
           <div>
-            <a href="#" className="footer__logo">
+            <a href="https://brayanolivares.com" className="footer__logo">
               <img src={bestbroth} alt="logo image" />
-              BestBroth
+              Brayan Olivares
             </a>
 
             <p className="footer__description">
-              Its a long way to the top if you wanna coding.
+              Flutter &amp; IoT Engineer — hardware to user interface, available for remote roles globally.
             </p>
           </div>
 
           <div className="footer__content">
             <div>
-              <h3 className="footer__title">About me</h3>
+              <h3 className="footer__title">Contact</h3>
 
               <ul className="footer__links">
                 <li>
-                  <a href="https://twitter.com/iambestbroth" className="footer__link">
-                  <FontAwesomeIcon icon={faXTwitter} /> Twitter
+                  <a href="https://brayanolivares.com" target="_blank" rel="noreferrer" className="footer__link">
+                  <FontAwesomeIcon icon={faGlobe} /> Website
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.facebook.com/brayan.olivares.52643" className="footer__link">
-                  <FontAwesomeIcon icon={faFacebook} /> Facebook
+                  <a href="mailto:olivaresbrayan0510@gmail.com" className="footer__link">
+                  <FontAwesomeIcon icon={faEnvelope} /> Email
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/bray_olivares" className="footer__link">
-                  <FontAwesomeIcon icon={faInstagram} /> Instagram
+                  <a href="https://www.linkedin.com/in/brayan-olivares-peña-865a74277" target="_blank" rel="noreferrer" className="footer__link">
+                  <BiLogoLinkedin /> LinkedIn
                   </a>
                 </li>
               </ul>
@@ -54,6 +54,7 @@ export function Footer() {
                 <a
                   href="https://www.linkedin.com/in/brayan-olivares-peña-865a74277"
                   target="blank"
+                  rel="noreferrer"
                   className="footer__social-link"
                 >
                 <BiLogoLinkedin/>
@@ -62,13 +63,14 @@ export function Footer() {
                 <a
                   href="https://github.com/BestBroth05"
                   target="blank"
+                  rel="noreferrer"
                   className="footer__social-link"
                 >
                 <BiLogoGithub/>
                 </a>
 
                 <a
-                  href="mailto:olivaresbrayan0510@gmail.com?"
+                  href="mailto:olivaresbrayan0510@gmail.com"
                   target="blank"
                   className="footer__social-link"
                 >
@@ -82,7 +84,7 @@ export function Footer() {
           <img src={img3} alt="footer image" className="footer__tree-2" />
         </div>
 
-        <span className="footer__copy">&#169; Brayan Olivares 2024</span>
+        <span className="footer__copy">&#169; Brayan Olivares 2026</span>
       </footer>
     </Container>
   );

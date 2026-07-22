@@ -3,7 +3,7 @@ import "../styles/Carousel.css";
 import flechaIzquierda from "../assets/img/iconmonstr-angel-left-thin.svg";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-export const Carousel = ({data}) => {
+export const Carousel = ({ data }) => {
     const [slide, setSlide] = useState(0);
     const [second, setSecond] = useState(0);
 var doc = document.getElementById("carousel")
@@ -33,7 +33,7 @@ var doc = document.getElementById("carousel")
         return <div className="carousel">
         <FaChevronLeft onClick={prevSlide} className="arrow arrow-left" />
         {data.map((item, i) => {
-            return <img src={item.img} width="600" height="400" key={i} className={slide === i ? "slide" : "slide slide-hidden"}/>
+            return <img src={item.img} alt="" key={i} className={slide === i ? "slide" : "slide slide-hidden"}/>
         })}
         <FaChevronRight onClick={nextSlide} className="arrow arrow-right"/>
       <span className="indicators">

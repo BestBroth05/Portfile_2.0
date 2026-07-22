@@ -6,8 +6,8 @@ import { Carousel } from './Carousel';
 export function ItemsProductos({item}) {
 
   return (
-    <article className="items__card" id='carousel'>
-    <Carousel data={item.img}></Carousel>
+    <article className="items__card" id="carousel">
+    <Carousel data={item.img} />
 
       <h3 className="items__price">{item.title}</h3>
       <span className="items__name">{item.precio}</span>

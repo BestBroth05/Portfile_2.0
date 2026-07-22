@@ -3,28 +3,46 @@ import bestbroth from "../assets/img/bestbroth_1.png";
 import sable from "../assets/img/sable.png";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { useWindowScroll } from "react-use";
+
+const NAV_SECTIONS = ["home", "about", "knowledge", "proyects", "contact"];
+
 export function Header() {
   const [state, setState] = useState(false);
   const [stateActive, setStateActive] = useState(0);
   const [stateHeader, setStateHeader] = useState(false);
 
   const { y } = useWindowScroll();
-  var apuntador;
+
   useLayoutEffect(() => {
-    if (y >= 50) {
-      setStateHeader(true);
-    } else {
-      setStateHeader(false);
-    }
+    setStateHeader(y >= 50);
   }, [y]);
 
-  // focusToolbar (() => {
-  //   if (apuntador) {
-      
-  //   }
-  // }, []);
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const scrollOffset = window.scrollY + 120;
+
+      let activeIndex = 0;
+      NAV_SECTIONS.forEach((id, index) => {
+        const section = document.getElementById(id);
+        if (section && section.offsetTop <= scrollOffset) {
+          activeIndex = index;
+        }
+      });
+
+      setStateActive(activeIndex);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
 
   return (
     <Container>
@@ -35,7 +53,7 @@ export function Header() {
         <nav className="nav container">
           <a href="#" className="nav__logo">
             <img src={bestbroth} alt="logo image" />
-            BestBroth
+            Brayan Olivares
           </a>
 
           <div
@@ -44,27 +62,27 @@ export function Header() {
           >
             <ul className="nav__list" onClick={() => setState(!state)}>
               <li className="nav__item">
-                <a href="#home" onClick={() => setStateActive(0)} className= {stateActive == 0 ? "nav__link active-link" : "nav__link"}>
+                <a href="#home" onClick={() => setStateActive(0)} className={stateActive === 0 ? "nav__link active-link" : "nav__link"}>
                   Home
                 </a>
               </li>
               <li className="nav__item">
-                <a href="#about" onClick={() => setStateActive(1)} className= {stateActive == 1 ? "nav__link active-link" : "nav__link"}>
+                <a href="#about" onClick={() => setStateActive(1)} className={stateActive === 1 ? "nav__link active-link" : "nav__link"}>
                   About
                 </a>
               </li>
               <li className="nav__item">
-                <a href="#knowledge" onClick={() => setStateActive(2)} className= {stateActive == 2 ? "nav__link active-link" : "nav__link"}>
+                <a href="#knowledge" onClick={() => setStateActive(2)} className={stateActive === 2 ? "nav__link active-link" : "nav__link"}>
                   Knowledge
                 </a>
               </li>
               <li className="nav__item">
-                <a href="#proyects" onClick={() => setStateActive(3)} className= {stateActive == 3 ? "nav__link active-link" : "nav__link"}>
-                  Projects
+                <a href="#proyects" onClick={() => setStateActive(3)} className={stateActive === 3 ? "nav__link active-link" : "nav__link"}>
+                  Experience
                 </a>
               </li>
               <li className="nav__item">
-                <a href="#contact" onClick={() => setStateActive(4)} className= {stateActive == 4 ? "nav__link active-link" : "nav__link"}>
+                <a href="#contact" onClick={() => setStateActive(4)} className={stateActive === 4 ? "nav__link active-link" : "nav__link"}>
                   Get in Touch
                 </a>
               </li>
