@@ -11,7 +11,6 @@ export const site = {
     website: "https://brayanolivares.com",
   },
   resume: {
-    href: "/docs/Brayan_Olivares_Resume.pdf",
     downloadName: "Brayan_Olivares_Resume.pdf",
   },
   meta: {

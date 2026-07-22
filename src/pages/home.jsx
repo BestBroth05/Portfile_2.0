@@ -6,40 +6,43 @@ import img1 from "../assets/img/shape-bg.png";
 import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import { ScrollToTop } from "../Components/ScrollToTop";
-import ParticleBackground from '../Components/Background';
+import ParticleBackground from "../Components/Background";
+
 export function Home() {
-  const sr = ScrollReveal({
-    origin: "top",
-    distance: "60px",
-    duration: 2500,
-    delay: 400,
-    reset: true,
-  });
   useEffect(() => {
-    sr.reveal(
-      `.home__data, .footer__content, .footer__logo, .footer__description`
-    );
-    sr.reveal(`.home__tree-1`, { origin: "left", delay: 800 });
-    sr.reveal(`.home__tree-2`, { origin: "right", delay: 800 });
-    sr.reveal(`.home__img`, { delay: 800 });
-    sr.reveal(`.category__card, .items__card`, { interval: 100 });
-    sr.reveal(`.about__img, .about__data, .footer__tree-2`, { origin: "left" });
-    sr.reveal(`.party__images, .party__data, .footer__tree-1`, {
-      origin: "right",
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return undefined;
+
+    const sr = ScrollReveal({
+      origin: "top",
+      distance: "40px",
+      duration: 1800,
+      delay: 200,
+      reset: false,
     });
+
+    sr.reveal(`.home__data, .footer__content, .footer__logo, .footer__description`);
+    sr.reveal(`.about__data, .experience__card, .project-card, .work-card, .skill-card`, {
+      interval: 80,
+    });
+
+    return () => {
+      sr.destroy();
+    };
   }, []);
 
   return (
     <Container>
-      <ParticleBackground></ParticleBackground>
-      <img src={img1} alt="" className="shape__bg"/>
+      <ParticleBackground />
+      <img src={img1} alt="" className="shape__bg" aria-hidden="true" />
       <Header />
       <Main />
       <Footer />
-      <ScrollToTop />{" "}
+      <ScrollToTop />
     </Container>
   );
 }
+
 const Container = styled.div`
   .container {
     max-width: 1024px;
@@ -57,11 +60,18 @@ const Container = styled.div`
     &__title {
       font-size: var(--h1-font-size);
       font-family: var(--second-font);
-      font-weight: initial;
+      font-weight: var(--font-semi-bold);
       line-height: 130%;
       color: var(--first-color);
       text-align: center;
       margin-bottom: 2.5rem;
+    }
+
+    &__subtitle {
+      color: var(--text-color);
+      text-align: center;
+      max-width: 40rem;
+      margin: -1.5rem auto 2.5rem;
     }
   }
 
@@ -97,55 +107,10 @@ const Container = styled.div`
       opacity: 0.8;
     }
   }
+
   @media screen and (max-width: 340px) {
     .container {
       margin-inline: 1rem;
-    }
-
-    .home {
-      &__title {
-        font-size: 1.5rem;
-      }
-      &__tree-1 {
-        left: -4rem;
-      }
-      &__tree-2 {
-        right: -4rem;
-      }
-    }
-
-    .items__container {
-      grid-template-columns: 180px;
-    }
-
-    .party__img {
-      width: 200px;
-    }
-
-    .footer__content {
-      gap: 2.5rem;
-    }
-  }
-
-  @media screen and (min-width: 576px) {
-    .home__container,
-    .about__container,
-    .party__container {
-      grid-template-columns: 0.6fr;
-      justify-content: center;
-    }
-
-    .home__tree-1,
-    .home__tree-2 {
-      width: 200px;
-    }
-
-    .items__container {
-      grid-template-columns: repeat(1, 400px);
-    }
-
-    .footer__content {
-      grid-template-columns: repeat(3, max-content);
     }
   }
 
@@ -156,29 +121,6 @@ const Container = styled.div`
       &__title {
         margin-bottom: 4rem;
       }
-    }
-
-    .nav {
-      height: calc(var(--header-height) + 1.5rem);
-
-      &__toggle,
-      &__close,
-      &__img {
-        display: none;
-      }
-      &__list {
-        flex-direction: row;
-        column-gap: 4rem;
-      }
-    }
-
-    .category__container {
-      grid-template-columns: repeat(2, 228px);
-      column-gap: 4rem;
-    }
-
-    .footer__content {
-      grid-template-columns: repeat(4, max-content);
     }
   }
 
@@ -196,212 +138,11 @@ const Container = styled.div`
       width: 450px;
       height: 450px;
     }
-
-    .home {
-      &__title-img-1,
-      &__title-img-2 {
-        width: 60px;
-      }
-      &__title-img-2 {
-        bottom: 5.75rem;
-      }
-      &__description {
-        padding: 0 7.5rem;
-      }
-      &__tree-1,
-      &__tree-2 {
-        width: 300px;
-        top: 14rem;
-      }
-      &__img {
-        width: 500px;
-      }
-    }
-
-    .category {
-      &__container {
-        grid-template-columns: repeat(3, 254px);
-      }
-      &__card {
-        padding: 6rem 2.5rem 2rem;
-      }
-      &__img {
-        width: 150px;
-      }
-      &__star {
-        right: 1rem;
-      }
-      & .shape__small {
-        top: 10rem;
-        left: -12rem;
-      }
-    }
-
-    .about {
-      &__img {
-        order: -1;
-        width: 250px;
-      }
-      &__container {
-        padding-top: 2rem;
-        grid-template-columns: max-content 0.9fr;
-        column-gap: 7rem;
-        align-items: center;
-      }
-      & .shape__big {
-        bottom: -12rem;
-      }
-    }
-
-    .about__data,
-    .party__data {
-      text-align: initial;
-    }
-
-    .about__container .section__title,
-    .party__container .section__title {
-      text-align: initial;
-      margin-bottom: 1.5rem;
-    }
-
-    .about__description,
-    .party__description {
-      margin-bottom: 2.5rem;
-    }
-
-    .items {
-      &__container {
-        grid-template-columns: repeat(1, 800px);
-        gap: 6rem 3.5rem;
-      }
-      &__card {
-        padding: 6rem 1rem 1.5rem;
-      }
-      &__img {
-        width: 450px;
-        height: 170px;
-      }
-      &__name {
-        font-size: var(--h3-font-size);
-      }
-      &__button i {
-        font-size: 1.5rem;
-      }
-      & .shape__big {
-        bottom: -12rem;
-      }
-    }
-
-    .party {
-      &__container {
-        padding-top: 5rem;
-        grid-template-columns: 0.7fr max-content;
-        column-gap: 8rem;
-        align-items: center;
-      }
-      &__img {
-        width: 400px;
-      }
-      &__star-1,
-      &__star-2 {
-        width: 100px;
-      }
-      &__star-1 {
-        top: -5rem;
-        left: -5rem;
-      }
-      &__star-2 {
-        right: -3rem;
-        bottom: 3rem;
-      }
-    }
-
-    .footer {
-      &__container {
-        grid-template-columns: repeat(2, max-content);
-        justify-content: space-between;
-      }
-      &__logo {
-        font-size: var(--h3-font-size);
-        margin-bottom: 1.5rem;
-      }
-      &__content {
-        column-gap: 5rem;
-      }
-      &__link {
-        font-size: var(--normal-font-size);
-      }
-      &__social {
-        column-gap: 1.5rem;
-
-        &-link {
-          font-size: 1.5rem;
-        }
-      }
-      &__copy {
-        margin: 10rem 0 4rem;
-      }
-      &__tree-1,
-      &__tree-2 {
-        width: 250px;
-      }
-      &__tree-1 {
-        top: initial;
-        bottom: 1.5rem;
-        right: -2rem;
-      }
-      &__tree-2 {
-        bottom: -1.5rem;
-      }
-      & .shape__big {
-        bottom: -16rem;
-      }
-    }
-
-    .scrollup {
-      right: 3rem;
-    }
   }
 
   @media screen and (min-width: 1072px) {
     .container {
       margin-inline: auto;
-    }
-  }
-
-  @media screen and (min-width: 1248px) {
-    .home {
-      &__tree-1,
-      &__tree-2 {
-        width: 450px;
-      }
-      &__img {
-        width: 600px;
-        margin-top: 3rem;
-      }
-    }
-
-    .footer__tree-2 {
-      left: 10%;
-    }
-  }
-
-  @media screen and (min-width: 2048px) {
-    .home {
-      &__container {
-        position: relative;
-        max-width: 1400px;
-        overflow: hidden;
-      }
-      &__tree-1,
-      &__tree-2 {
-        top: 5rem;
-      }
-    }
-
-    .footer__tree-1,
-    .footer__tree-2 {
-      width: 300px;
     }
   }
 `;

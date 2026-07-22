@@ -1,11 +1,8 @@
-/*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Jersey+15&family=Poller+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-/*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
 
-  /*========== Colors ==========*/
   --first-color: #624da3;
   --first-color-alt: hsl(287, 48%, 49%);
   --white-color: #fff;
@@ -13,39 +10,38 @@
   --text-color-light: hsl(22, 4%, 55%);
   --body-color: hsl(15, 6%, 14%);
   --container-color: hsl(22, 8%, 7%);
+  --surface-elevated: hsl(22, 8%, 10%);
+  --border-subtle: hsla(0, 0%, 100%, 0.08);
 
-  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Poppins", sans-serif;
 
-  --body-font: 'Poppins', sans-serif;
-  --second-font:  sans-serif;
-
-  --biggest-font-size: 3rem;
+  --biggest-font-size: 2.5rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .75rem;
-
-
-  @media screen and (min-width: 1024px) {
-    --biggest-font-size: 3.5rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
-  }
-
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
 
   --font-medium: 500;
   --font-semi-bold: 600;
   --font-bold: 700;
 
-
   --z-tooltip: 10;
   --z-fixed: 100;
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 3.25rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
 }
 
 * {
@@ -63,6 +59,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--white-color);
+  line-height: 1.6;
 }
 
 ul {
@@ -71,100 +68,148 @@ ul {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
-.button{
-  margin: .5rem;
-  display: inline-block;
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--first-color);
+  outline-offset: 3px;
+}
+
+.button {
+  margin: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   background-color: #624da3;
-  padding: 1rem 1.5rem;
+  padding: 0.9rem 1.5rem;
   border-radius: 4rem;
   color: #fff;
   font-weight: var(--font-semi-bold);
-  transition: background .3s, color .3s;
-
-  &:hover{
-      background-color: var(--first-color);
-      color: var(--white-color);
-  }
-  box-shadow: 0px 0px 20px -3px rgba(152, 23, 238,0.5);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px -3px rgba(152, 23, 238, 0.5);
+  min-height: 44px;
 }
-::-webkit-scrollbar{
-  width: .6rem;
-  border-radius: .5rem;
+
+.button:hover {
+  background-color: var(--first-color-alt);
+  color: var(--white-color);
+}
+
+.button--ghost {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: none;
+}
+
+.button--ghost:hover {
+  background-color: rgba(98, 77, 163, 0.25);
+  border-color: var(--first-color);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
   background-color: hsl(22, 8%, 10%);
-  
-  
 }
-::-webkit-scrollbar-thumb{
-  border-radius: .5rem;
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
   background-color: hsl(0, 0%, 23%);
-  
-  
-}
-
-.buttons{
-  margin: 5px;
-  padding: 15px;
-  background: var(--first-color);
-  color: white;
-}
-.mediaIcons {
-  padding: 10px;
-  margin: 10px;
-}
-.headerMedia{
-  margin-top: 20px;
-}
-.cardTech {
-  display: flex;
-  flex-direction: row;
-  background-color: grey;
-  padding: 5px;
-  margin: 5px;
-  border-radius: .5rem;
-  text-align: center;
-}
-/* .cardSection {
-  text-align: center;
-  margin-left: 35px;
-  display: flex;
-  flex-direction:row;
-  flex-wrap: wrap;
-} */
-
-input, select {
-  font-family: var(--body-font);
-  font-size: 14px;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
 .form {
   border-radius: 5px;
   background-color: transparent;
-  padding: 20px;
+  padding: 0;
 }
 
-textarea {
-  margin-top: 10px;
-  font-family: var(--body-font);
+.form__field {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+}
+
+.form input,
+.form textarea,
+.form select {
   width: 100%;
-  height: 150px;
-  padding: 12px 20px;
+  padding: 0.85rem 1rem;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.75rem;
   box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 14px;
-  resize: none;
+  background-color: var(--surface-elevated);
+  color: var(--white-color);
+}
+
+.form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form__status {
+  margin: 0.75rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: var(--small-font-size);
+}
+
+.form__status--success {
+  background: rgba(46, 160, 100, 0.2);
+  border: 1px solid rgba(46, 160, 100, 0.5);
+}
+
+.form__status--error {
+  background: rgba(200, 60, 60, 0.2);
+  border: 1px solid rgba(200, 60, 60, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
