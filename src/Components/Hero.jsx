@@ -8,6 +8,7 @@ import {
   BiGlobe,
 } from "react-icons/bi";
 import flutterImg from "../assets/img/logo_flutter.png";
+import nodeImg from "../assets/img/node.png";
 import resumePdf from "../assets/docs/Brayan_Olivares_Resume.pdf";
 import { site } from "../data/site";
 
@@ -27,6 +28,12 @@ export function Hero() {
                 src={flutterImg}
                 alt=""
                 className="home__title-img-1"
+                aria-hidden="true"
+              />
+              <img
+                src={nodeImg}
+                alt=""
+                className="home__title-img-2"
                 aria-hidden="true"
               />
             </h1>
@@ -144,13 +151,24 @@ const Container = styled.div`
         color: var(--first-color);
       }
 
-      &-img-1 {
+      &-img-1,
+      &-img-2 {
         width: 40px;
         position: absolute;
+      }
+
+      &-img-1 {
         top: -1rem;
         left: -1.5rem;
         transform: rotate(-15deg);
         animation: animate-star-1 5s infinite ease-in-out;
+      }
+
+      &-img-2 {
+        bottom: 0.15rem;
+        right: -1.5rem;
+        transform: rotate(15deg);
+        animation: animate-star-2 5s infinite ease-in-out;
       }
     }
 
@@ -219,11 +237,31 @@ const Container = styled.div`
         opacity: 0.2;
       }
     }
+
+    @keyframes animate-star-2 {
+      0% {
+        transform: scale(1) rotate(15deg);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(0.7) rotate(15deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: scale(1) rotate(15deg);
+        opacity: 1;
+      }
+    }
   }
 
   @media screen and (min-width: 1024px) {
-    .home__title-img-1 {
+    .home__title-img-1,
+    .home__title-img-2 {
       width: 56px;
+    }
+
+    .home__title-img-2 {
+      bottom: 0.35rem;
     }
   }
 `;
