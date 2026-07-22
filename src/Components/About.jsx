@@ -1,90 +1,156 @@
 import styled from "styled-components";
-import img1 from "../assets/img/me.png"
+import img1 from "../assets/img/me.png";
+import { education, languages } from "../data/experience";
+
 export function About() {
-  return (<Container>
-   <section className="about section" id="about">
-          <div className="shape__small"></div>
-          <div className="shape__big"></div>
+  return (
+    <Container>
+      <section className="about section" id="about" aria-labelledby="about-title">
+        <div className="shape__small" aria-hidden="true"></div>
+        <div className="shape__big" aria-hidden="true"></div>
 
-          <div className="about__container container grid">
-            <div className="about__data">
-              <h2 className="section__title">
+        <div className="about__container container grid">
+          <div className="about__data">
+            <h2 className="section__title" id="about-title">
               About me
-              </h2>
+            </h2>
 
-              <p className="about__description">
-              Most mobile developers hand off at the API. I go further — from BLE protocol optimization and Raspberry Pi integrations to Flutter frontends and AWS-backed cloud infrastructure.
-              </p>
-              <p className="about__description">
-              4+ years building IoT and cross-platform systems that run in hospitals, buses, and refrigerators across 10+ cities and 200+ connected devices. I don&apos;t just build features; I own the full picture from hardware to user interface. Available for remote roles globally.
-              </p>
+            <p className="about__description">
+              I work across the stack where mobile products meet connected
+              hardware and cloud services. My focus areas include Flutter
+              applications, Bluetooth Low Energy workflows, IoT integrations,
+              Node.js and TypeScript backends, and AWS infrastructure.
+            </p>
+            <p className="about__description">
+              I care about clean architecture, maintainable APIs, automated
+              testing, and clear technical documentation so systems remain
+              reliable after the first release.
+            </p>
 
-              <h3 className="section__title">
-              Experience
-              </h3>
-              <p className="about__description">
-              <strong>AJ Electronic Design — Flutter &amp; IoT Engineer</strong> | Remote | Oct 2022 – Present
-              </p>
-              <p className="about__description">
-              <strong>Government Agency, Hidalgo — Software Engineer Intern</strong> | Jan 2022 – June 2022
-              </p>
-
-              <h3 className="section__title">
-              Education
-              </h3>
-              <p className="about__description">
-              Bachelor&apos;s Degree in Software Engineering — Universidad Tecnológica de la Sierra Hidalguense | 2019 – 2023
-              </p>
-
-              <h3 className="section__title">
-              Languages
-              </h3>
-              <p className="about__description">
-              English: Professional Working Proficiency · Spanish: Native
-              </p>
-              
+            <div className="about__meta">
+              <div>
+                <h3>Education</h3>
+                <p>
+                  {education.degree} — {education.institution} |{" "}
+                  {education.period}
+                </p>
+              </div>
+              <div>
+                <h3>Languages</h3>
+                <p>
+                  {languages
+                    .map((language) => `${language.name}: ${language.level}`)
+                    .join(" · ")}
+                </p>
+              </div>
             </div>
-
-            <img
-              src={img1}
-              alt="about image"
-              className="about__img"
-            />
           </div>
-        </section>
-  </Container>);
+
+          <img
+            src={img1}
+            alt="Portrait of Brayan Olivares"
+            className="about__img"
+            width={250}
+            height={450}
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </Container>
+  );
 }
-const Container =styled.div`
-  .about{
+
+const Container = styled.div`
+  .about {
     position: relative;
 
-    &__container{
-        row-gap: 3.5rem;
+    &__container {
+      row-gap: 3.5rem;
 
-        & .section__title{
-            margin-bottom: 1rem;
-        }
-    }
-    &__data{
-        text-align: center;
-    }
-    &__description{
-        text-align: left;
+      & .section__title {
         margin-bottom: 1rem;
+      }
     }
-    &__img{
-        width: 250px;
-        height: 450px;
-        justify-self: center;
-        animation:flotar 1.9s ease-in-out infinite alternate;
+
+    &__data {
+      text-align: center;
     }
-    & .shape__small{
-        top: 2rem;
-        right: -3rem;
+
+    &__description {
+      text-align: left;
+      margin-bottom: 1rem;
+      color: var(--text-color);
     }
-    & .shape__big{
-        bottom: 0;
-        left: -8rem;
+
+    &__meta {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      text-align: left;
+
+      h3 {
+        color: var(--first-color);
+        font-size: var(--h3-font-size);
+        margin-bottom: 0.35rem;
+      }
+
+      p {
+        color: var(--text-color);
+        font-size: var(--small-font-size);
+      }
     }
-}
-`
+
+    &__img {
+      width: min(250px, 70vw);
+      height: auto;
+      aspect-ratio: 5 / 9;
+      object-fit: cover;
+      justify-self: center;
+      border-radius: 1.25rem;
+      animation: flotar 1.9s ease-in-out infinite alternate;
+    }
+
+    & .shape__small {
+      top: 2rem;
+      right: -3rem;
+    }
+
+    & .shape__big {
+      bottom: 0;
+      left: -8rem;
+    }
+  }
+
+  @keyframes flotar {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .about {
+      &__img {
+        order: -1;
+      }
+
+      &__container {
+        padding-top: 2rem;
+        grid-template-columns: max-content 0.9fr;
+        column-gap: 4rem;
+        align-items: center;
+      }
+
+      &__data {
+        text-align: initial;
+      }
+
+      &__container .section__title {
+        text-align: initial;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+`;
