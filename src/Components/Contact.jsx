@@ -125,7 +125,6 @@ export function Contact() {
   );
 }
 
-export { Contact as Party };
 
 const Container = styled.div`
   .contact {
