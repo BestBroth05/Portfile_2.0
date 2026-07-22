@@ -21,7 +21,6 @@ export function Hero() {
 
         <div className="home__container container grid">
           <div className="home__data">
-            <p className="home__eyebrow">Software Engineer</p>
             <h1 className="home__title" id="home-title">
               <span>{site.name}</span>
               <img
