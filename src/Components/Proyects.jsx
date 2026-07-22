@@ -1,25 +1,25 @@
 import styled from "styled-components";
-import { dataProductos } from "../data/db";
-import { ItemsProductos } from "../Components/ItemsProyects";
+import { featuredProjects } from "../data/featuredProjects";
+import { ItemsProductos } from "./ItemsProyects";
+
 export function Productos() {
   return (
     <Container>
-      <section className="items section" id="proyects">
+      <section className="items section" id="projects">
         <div className="shape__big"></div>
 
-        <h2 className="section__title">
-        Experience
-        </h2>
+        <h2 className="section__title">Projects</h2>
 
         <div className="items__container container grid">
-          {dataProductos.map((item, index) => {
-            return <ItemsProductos item={item} key={index} />;
-          })}
+          {featuredProjects.map((item) => (
+            <ItemsProductos item={item} key={item.slug} />
+          ))}
         </div>
       </section>
     </Container>
   );
 }
+
 const Container = styled.div`
   .items {
     position: relative;

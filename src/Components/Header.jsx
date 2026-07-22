@@ -5,8 +5,8 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useWindowScroll } from "react-use";
-
-const NAV_SECTIONS = ["home", "about", "knowledge", "proyects", "contact"];
+import { navigation } from "../data/navigation";
+import { site } from "../data/site";
 
 export function Header() {
   const [state, setState] = useState(false);
@@ -24,8 +24,8 @@ export function Header() {
       const scrollOffset = window.scrollY + 120;
 
       let activeIndex = 0;
-      NAV_SECTIONS.forEach((id, index) => {
-        const section = document.getElementById(id);
+      navigation.forEach((item, index) => {
+        const section = document.getElementById(item.id);
         if (section && section.offsetTop <= scrollOffset) {
           activeIndex = index;
         }
@@ -50,59 +50,69 @@ export function Header() {
         className={stateHeader ? "header bg-header" : "header"}
         id="header"
       >
-        <nav className="nav container">
-          <a href="#" className="nav__logo">
-            <img src={bestbroth} alt="logo image" />
-            Brayan Olivares
+        <nav className="nav container" aria-label="Primary">
+          <a href="#home" className="nav__logo">
+            <img src={bestbroth} alt="" />
+            {site.name}
           </a>
 
           <div
             className={state ? "nav__menu show-menu" : "nav__menu"}
             id="nav-menu"
           >
-            <ul className="nav__list" onClick={() => setState(!state)}>
-              <li className="nav__item">
-                <a href="#home" onClick={() => setStateActive(0)} className={stateActive === 0 ? "nav__link active-link" : "nav__link"}>
-                  Home
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#about" onClick={() => setStateActive(1)} className={stateActive === 1 ? "nav__link active-link" : "nav__link"}>
-                  About
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#knowledge" onClick={() => setStateActive(2)} className={stateActive === 2 ? "nav__link active-link" : "nav__link"}>
-                  Knowledge
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#proyects" onClick={() => setStateActive(3)} className={stateActive === 3 ? "nav__link active-link" : "nav__link"}>
-                  Experience
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#contact" onClick={() => setStateActive(4)} className={stateActive === 4 ? "nav__link active-link" : "nav__link"}>
-                  Get in Touch
-                </a>
-              </li>
+            <ul className="nav__list" onClick={() => setState(false)}>
+              {navigation.map((item, index) => (
+                <li className="nav__item" key={item.id}>
+                  <a
+                    href={item.href}
+                    onClick={() => setStateActive(index)}
+                    className={
+                      stateActive === index
+                        ? "nav__link active-link"
+                        : "nav__link"
+                    }
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
 
             <div
               className="nav__close"
               id="nav-close"
-              onClick={() => setState(!state)}
+              onClick={() => setState(false)}
+              role="button"
+              tabIndex={0}
+              aria-label="Close menu"
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setState(false);
+                }
+              }}
             >
               <MdClose />
             </div>
 
-            <img src={sable} alt="nav image" className="nav__img" />
+            <img src={sable} alt="" className="nav__img" />
           </div>
 
           <div
             className={state ? "nav__toggle show-menu" : "nav__toggle"}
             id="nav-toggle"
-            onClick={() => setState(!state)}
+            onClick={() => setState((open) => !open)}
+            role="button"
+            tabIndex={0}
+            aria-label="Open menu"
+            aria-expanded={state}
+            aria-controls="nav-menu"
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setState((open) => !open);
+              }
+            }}
           >
             <HiMenuAlt2 />
           </div>

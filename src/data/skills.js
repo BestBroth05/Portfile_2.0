@@ -1,0 +1,55 @@
+export const skillCategories = [
+  {
+    id: "mobile-connected-devices",
+    title: "Mobile & Connected Devices",
+    skills: [
+      "Flutter",
+      "Dart",
+      "Bluetooth Low Energy",
+      "IoT",
+      "Android",
+      "iOS",
+      "Raspberry Pi",
+    ],
+  },
+  {
+    id: "backend-apis",
+    title: "Backend & APIs",
+    skills: [
+      "Node.js",
+      "TypeScript",
+      "Express",
+      "REST APIs",
+      "OpenAPI",
+      "JWT",
+    ],
+  },
+  {
+    id: "cloud-devops",
+    title: "Cloud & DevOps",
+    skills: [
+      "AWS",
+      "Lambda",
+      "API Gateway",
+      "S3",
+      "CloudFront",
+      "EC2",
+      "Route 53",
+      "Systems Manager",
+      "GitHub Actions",
+      "AWS SAM",
+    ],
+  },
+  {
+    id: "data-tools",
+    title: "Data & Tools",
+    skills: [
+      "SQL Server",
+      "Git",
+      "GitHub",
+      "Postman",
+      "Automated Testing",
+      "Firebase",
+    ],
+  },
+];

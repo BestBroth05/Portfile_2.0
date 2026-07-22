@@ -1,32 +1,25 @@
-/* eslint-disable no-unused-vars */
 import styled from "styled-components";
-import img1 from "../assets/img/pngwing.com (55).png";
-import img2 from "../assets/img/pngwing.com (50).png";
-import img3 from "../assets/img/pngwing.com (57).png";
-import img4 from "../assets/img/pngwing.com (59).png";
-import img5 from "../assets/img/pngwing.com (50).png";
-import { ItemsCategorias } from "../Components/ItemsKnowledge";
-import { datacategorias } from "../data/db";
+import { ItemsCategorias } from "./ItemsKnowledge";
+import { skillCategories } from "../data/skills";
+
 export function Categorias() {
-  
   return (
     <Container>
-      <section className="category section" id="knowledge">
+      <section className="category section" id="skills">
         <div className="shape__small"></div>
 
-        <h2 className="section__title">
-        Knowledge
-        </h2>
+        <h2 className="section__title">Knowledge</h2>
 
         <div className="category__container container grid">
-          {datacategorias.map((item, index) => {
-            return <ItemsCategorias key={index} item={item}/>;
-          })}
+          {skillCategories.map((item) => (
+            <ItemsCategorias key={item.id} item={item} />
+          ))}
         </div>
       </section>
     </Container>
   );
 }
+
 const Container = styled.div`
   .category {
     position: relative;
@@ -67,10 +60,9 @@ const Container = styled.div`
     }
     &__description {
       font-size: var(--small-font-size);
-      text-align: left;
       position: relative;
       background-color: grey;
-      border-radius: .75rem;
+      border-radius: 0.75rem;
       padding: 10px;
       margin: 10px;
       text-align: center;
