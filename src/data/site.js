@@ -1,6 +1,6 @@
 export const site = {
   name: "Brayan Olivares",
-  title: "Software Engineer | Flutter | Backend | AWS | IoT",
+  title: "Software Engineer | Flutter | NodeJS | AWS | IoT",
   canonicalUrl: "https://brayanolivares.com",
   email: "olivaresbrayan0510@gmail.com",
   links: {
@@ -14,7 +14,7 @@ export const site = {
     downloadName: "Brayan_Olivares_Resume.pdf",
   },
   meta: {
-    title: "Brayan Olivares | Software Engineer | Flutter | Backend | AWS | IoT",
+    title: "Brayan Olivares | Software Engineer | Flutter | NodeJS | AWS | IoT",
     description:
       "Software engineer specializing in Flutter, Bluetooth Low Energy, IoT platforms, Node.js/TypeScript backends, and AWS cloud infrastructure.",
   },
