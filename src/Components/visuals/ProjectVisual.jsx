@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 export function ProjectVisual({ type, title }) {
   if (type === "artifact") {
     return (

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 export function WorkVisual({ type, title }) {
   const labels = {
     devices: ["Flutter", "IoT", "AWS"],
