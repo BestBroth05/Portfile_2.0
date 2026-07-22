@@ -56,6 +56,7 @@ const Container = styled.div`
 
   .section {
     padding-block: 5rem 1.5rem;
+    overflow-x: clip;
 
     &__title {
       font-size: var(--h1-font-size);

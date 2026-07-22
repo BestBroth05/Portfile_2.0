@@ -211,6 +211,11 @@ const Container = styled.div`
       left: -2rem;
       opacity: 0.35;
       pointer-events: none;
+      display: none;
+
+      @media screen and (min-width: 360px) and (max-width: 767px) {
+        display: block;
+      }
 
       @media screen and (min-width: 768px) {
         display: none;
